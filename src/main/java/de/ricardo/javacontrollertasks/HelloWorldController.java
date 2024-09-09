@@ -1,19 +1,25 @@
 package de.ricardo.javacontrollertasks;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/hello")
+@RequestMapping("/api")
 public class HelloWorldController {
 
-    @GetMapping()
+
+    @GetMapping("/hello")
     public String helloWorld() {
         return "Hello World Task!";
     }
 
+    @GetMapping("/hello/{name}")
+    public String helloSomeone(@PathVariable String name) {
+        return "Hello, " + name + "!";
+    }
 
 
 }
