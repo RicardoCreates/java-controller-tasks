@@ -23,4 +23,10 @@ public class MessageController {
         return messages;
     }
 
+    @DeleteMapping("/messages/{id}")
+    public String deleteMessage(@PathVariable String id) {
+        messages.removeIf(message -> message.getId().equals(id));
+        return "Message with id " + id + " was deleted";
+    }
+
 }
